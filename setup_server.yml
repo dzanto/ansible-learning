@@ -2,10 +2,6 @@
 - name: Setting up server
   hosts: all
   become: yes
-
-#  vars:
-#    server_name: newserver
-
   tasks:
   - name: Changing name server
     hostname: name="{{server_name}}"
