@@ -3,8 +3,8 @@
   hosts: all
   become: yes
 
-  vars:
-    server_name: newserver
+#  vars:
+#    server_name: newserver
 
   tasks:
   - name: Changing name server
