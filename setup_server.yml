@@ -3,6 +3,9 @@
   hosts: all
   become: yes
   tasks:
-  - name: Changing name server
-    hostname: name="{{server_name}}"
-
+  - name: 'Changing server name to: {{ server_name }}'
+    hostname: name="{{ server_name }}"
+  - name: 'Create user: {{ new_user }}'
+    user:
+      name: "{{ new_user }}"
+      password: "{{ user_password | password_hash('sha512') }}"

@@ -2,3 +2,5 @@
 ansible_user: root
 ansible_ssh_private_key_file: ~/.ssh/id_rsa
 server_name: newserver
+new_user: testuser
+user_password: testpass
