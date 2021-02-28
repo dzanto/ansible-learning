@@ -1,0 +1,26 @@
+---
+- name: Setup nginx
+  hosts: all
+  become: yes
+  vars:
+    src_file: ./MyWebSite/index.html
+    dst_path: /var/www/html
+
+  tasks:
+  - name: Install Nginx
+    apt:
+      name: nginx
+      state: latest
+
+  - name: Copy my index.html to server
+    copy:
+      src: "{{ src_file }}"
+      dest: "{{ dst_path }}"
+      mode: 0555
+    notify: Restart nginx
+
+  handlers:
+  - name: Restart nginx
+    service:
+      name: nginx
+      state: restarted

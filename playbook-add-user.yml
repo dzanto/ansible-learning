@@ -1,0 +1,31 @@
+---
+- name: Setting up server
+  hosts: all
+  vars:
+    ansible_user: root
+  become: yes
+  tasks:
+
+  - name: 'Changing server name to: {{ server_name }}'
+    hostname: name="{{ server_name }}"
+
+  - name: 'Create user: {{ new_user }}'
+    user:
+      name: "{{ new_user }}"
+      groups: sudo
+      shell: /bin/bash
+      password: "{{ user_password | password_hash('sha512') }}"
+
+  - name: 'Add SSH key for {{ new_user }}'
+    authorized_key:
+      user: '{{ new_user }}'
+      state: present
+      key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+#  - name: Allow '{{ new_user }}' group to have passwordless sudo
+#    lineinfile:
+#      dest: /etc/sudoers
+#      state: present
+#      regexp: "^%{{ new_user }}"
+#      line: '%{{ new_user }} ALL=(ALL) NOPASSWD: ALL'
+#      validate: visudo -cf %s
