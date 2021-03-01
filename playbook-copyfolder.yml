@@ -18,7 +18,14 @@
       src: "{{ item }}"
       dest: "{{ dst_folder }}"
       mode: 0555
-    with_fileglob: "{{ src_folder }}/*.*"
+    with_fileglob: "{{ src_folder }}/*.html"
+    notify: Restart nginx
+
+  - nam: Generating index.html
+    template:
+      src: "{{src_folder}}/index.j2"
+      dest: "{{dst_folder}}/index.html"
+      mode: 0555
     notify: Restart nginx
 
   handlers:
