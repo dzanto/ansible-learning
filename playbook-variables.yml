@@ -15,7 +15,7 @@
     msg: "{{ message1 }}, World!"
 
   - set_fact:
-      full_message: "{{ message1 }} {{ message2 }} from user"
+    full_message: "{{ message1 }} {{ message2 }} from user"
   - debug:
     var:
       full_message
