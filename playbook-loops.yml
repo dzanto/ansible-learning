@@ -17,7 +17,7 @@
     #задержка между loops в секундах
     delay: 1
     #Максимальное количество попыток
-    retries: 10
+    retries: 5
     until: output.stdout.find('ZzZzZz') == false
 
   - name: Print Output from loop
