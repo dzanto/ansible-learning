@@ -19,3 +19,9 @@
       var: full_message
   - debug:
       var: ansible_distribution
+
+  - shell: uptime
+    #записываем вывод команды uptime в перемеонную my_uptime
+    register: my_uptime
+  - debug:
+      var: my_uptime.stdout
