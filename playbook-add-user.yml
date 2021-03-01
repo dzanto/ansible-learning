@@ -3,6 +3,8 @@
   hosts: all
   vars:
     ansible_user: root
+    ansible_ssh_pass: Lpq6a3x140
+
   become: yes
   tasks:
 
