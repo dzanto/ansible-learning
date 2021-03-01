@@ -11,6 +11,7 @@
     apt:
       name: nginx
       state: latest
+    when: ansible_os_family == "Debian"
 
   - name: Copy my index.html to server
     copy:
