@@ -1,13 +1,21 @@
 ---
-- name: Playbook with variables
+- name: Playbook with variables, debug, set_fact
   hosts: all
   become: yes
 
   vars:
-    message: "Hello!"
+    message1: "Hello,"
+    message2: "World!"
 
   tasks:
   - name: Print variables
     debug:
       var: message
-      msg: "{{ message }}, World!"
+  - debug:
+    msg: "{{ message1 }}, World!"
+
+  - set_fact:
+      full_message: "{{ message1 }} {{ message2 }} from user"
+  - debug:
+    var:
+      full_message
