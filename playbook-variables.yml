@@ -1,0 +1,12 @@
+---
+- name: Playbook with variables
+  hosts: all
+  become: yes
+
+  vars:
+    message: "Hello!"
+
+  tasks:
+  - name: Print variables
+    debug:
+      var: message
