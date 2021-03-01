@@ -19,5 +19,7 @@
     #Максимальное количество попыток
     retries: 5
     until: output.stdout.find('ZzZzZz') == false
+
+  - name:
     debug:
       var: output.stdout
