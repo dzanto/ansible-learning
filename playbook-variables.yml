@@ -10,3 +10,4 @@
   - name: Print variables
     debug:
       var: message
+      msg: "{{ message }}, World!"
