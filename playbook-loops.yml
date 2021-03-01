@@ -1,0 +1,25 @@
+---
+- name: Loops
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Say hello for everybody
+    debug: msg="hello {{ item }}"
+    loop:
+      - "One"
+      - "Two"
+      - "Three"
+
+  - name: Until loop
+    shell: echo -n Zz >> myfile.txt && cat myfile.txt
+    register: output
+    #задержка между loops в секундах
+    delay: 1
+    #Максимальное количество попыток
+    retries: 10
+    until: output.stdout.find('ZzZzZz') == false
+
+  - name: Print Output from loop
+    debug:
+      var: putput.stdout
