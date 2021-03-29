@@ -47,3 +47,8 @@ ansible my_ubuntu -m copy -a "src=privet.txt dest=/home mode=777" -b
 Удалить файл. Используем модуль file, указываем путь к файлу и состояние absent(отсутствует):
 ```
 ansible all -m file -a "path=/home/privet.txt state=absent" -b
+```
+Скачать файл на хост по ссылке:
+```
+ansible my_ubuntu -m get_url -a "url=https://www.fodors.com/wp-content/uploads/2018/10/mini-horse-2.jpg dest=/home" -b
+```
