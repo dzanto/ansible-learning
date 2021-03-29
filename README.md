@@ -6,5 +6,5 @@ ansible-inventory --list
 ```
 Просмотр структуры групп и серверов в виде дерева:
 ```
-ansible-graph
+ansible-inventory --graph
 ```
