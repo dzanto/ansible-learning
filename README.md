@@ -52,3 +52,11 @@ ansible all -m file -a "path=/home/privet.txt state=absent" -b
 ```
 ansible my_ubuntu -m get_url -a "url=https://www.fodors.com/wp-content/uploads/2018/10/mini-horse-2.jpg dest=/home" -b
 ```
+Установка пакетов:
+```
+ansible all -m apt -a "name=nginx state=latest" -b
+```
+Получение контента по url:
+```
+ansible all -m uri -a "https://ya.ru/ return_content=yes"
+```
