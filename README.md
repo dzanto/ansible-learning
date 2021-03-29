@@ -15,12 +15,12 @@ ansible-inventory --list
 ansible-inventory --graph
 ```
 
-### Заупск модулей ansible
+### Запуск модулей ansible
 ```
 ansible -i hosts.yml all -m ping
 ansible -i [имя инветори файла] [группа хостов] -m [команда]
 ```
-### Конфиг файл ansible.cfg
+### Конфигурирование файла ansible.cfg
 ```
 [defaults]
 host_key_checking = false # отключить подтверждение fingerprint при первом подключении к хосту по ssh
