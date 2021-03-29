@@ -1,4 +1,5 @@
 # Основы работы с Ansible
+## Конфигурирование ansible
 Просмотр версии ansible
 ```
 ansible --version
@@ -28,4 +29,14 @@ inventory = ./hosts.yml   # указываем inventory файл
 После указания inventory в конфигурационном файле запуск ansible выглядит так:
 ```
 ansible all -m ping
+```
+## Ad-Hoc команды ansible
+Просмотр подробной информации и основных переменных о хосте:
+```
+ansible my_ubuntu -m setup
+```
+Выполнение shell команды на хосте (при использовании command нельзя использовать env системы(например $HOME) и команды перенаправления <>|;&
+```
+ansible all -m shell -a "uptime"
+ansible all -m command -a "uptime"
 ```
