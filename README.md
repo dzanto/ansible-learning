@@ -37,6 +37,13 @@ ansible my_ubuntu -m setup
 ```
 Выполнение shell команды на хосте (при использовании command нельзя использовать env системы(например $HOME) и команды перенаправления <>|;&
 ```
-ansible all -m shell -a "uptime"
 ansible all -m command -a "uptime"
+ansible all -m shell -a "ls /etc | grep py"
 ```
+Скопировать файл (copy), указываем что команда должна выполниться с root правами (-b - become):
+```
+ansible my_ubuntu -m copy -a "src=privet.txt dest=/home mode=777" -b
+```
+Удалить файл. Используем модуль file, указываем путь к файлу и состояние absent(отсутствует):
+```
+ansible all -m file -a "path=/home/privet.txt state=absent" -b
