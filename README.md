@@ -66,3 +66,7 @@ ansible all -m service -a "name=nginx state=started enabled=yes" -b
 ```
 ### Хранение переменных
 Переменные записываются в group_vars в файлах соответствующих групп (например my_servers)
+### Запуск playbook
+```
+ansible-playbook playbook-nginx-setup.yml
+```
