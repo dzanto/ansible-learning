@@ -63,3 +63,5 @@ ansible all -m apt -a "name=nginx state=latest" -b
 Управление сервисами, запустить, и включить автозапуск при старте:
 ```
 ansible all -m service -a "name=nginx state=started enabled=yes" -b
+### Хранение переменных
+Переменные записываются в group_vars в файлах соответствующих групп (например my_servers)
