@@ -70,3 +70,4 @@ ansible all -m service -a "name=nginx state=started enabled=yes" -b
 ```
 ansible-playbook playbook-nginx-setup.yml
 ```
+---
